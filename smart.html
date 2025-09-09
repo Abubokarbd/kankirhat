@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>স্মার্ট টেকনোলজি - কানকিরহাট</title>
+    <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <style>
+        body {
+            font-family: 'SolaimanLipi', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        h1 { margin: 0; font-size: 2.5em; }
+        h2 { margin: 5px 0; font-size: 1.5em; }
+        .business-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .business-section h4 {
+            margin: 0 0 10px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .business-section h5 {
+            margin: 10px 0;
+            font-size: 1.3em;
+            color: #555;
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid #4CAF50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slider img.active {
+            opacity: 1;
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .slider-dot.active {
+            background-color: #4CAF50;
+        }
+        .business-section p {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        .business-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 20px auto;
+            max-width: 400px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+        .business-section ul li {
+            margin: 5px 0;
+        }
+        .business-section .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 10px 0;
+        }
+        .business-section .social-links a {
+            font-size: 1.2em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        .business-section .social-links .facebook {
+            color: #1877F2;
+        }
+        .business-section .social-links .facebook:hover {
+            color: #145DBF;
+        }
+        .business-section .social-links .whatsapp {
+            color: #25D366;
+        }
+        .business-section .social-links .whatsapp:hover {
+            color: #20B258;
+        }
+        .business-section .social-links i {
+            font-size: 1.5em;
+        }
+        .business-section p a.tel {
+            color: #2196F3;
+            text-decoration: none;
+        }
+        .business-section p a.tel:hover {
+            color: #1976D2;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .developer-button {
+            background-color: #FF9800;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .developer-button i {
+            font-size: 1.2em;
+        }
+        .developer-button:hover {
+            background-color: #F57C00;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.2em; }
+            .business-container { padding: 15px; }
+            .business-section h4 { font-size: 1.5em; }
+            .business-section h5 { font-size: 1.1em; }
+            .business-section p { font-size: 1em; }
+            .business-section ul { font-size: 0.9em; }
+            .business-section .social-links a { font-size: 1em; }
+            .business-section .social-links i { font-size: 1.2em; }
+            .slider { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>কানকিরহাট</h1>
+        <h2>স্মার্ট টেকনোলজি</h2>
+    </header>
+
+    <div class="business-container">
+        <div class="business-section">
+            <h4><i class="fas fa-laptop-code"></i> স্মার্ট টেকনোলজি</h4>
+            <h5>কম্পিউটার ট্রেইনিং সেন্টার</h5>
+            <div class="slider">
+                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488659392_1218272040300326_6629375751084598239_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHHB6rZX2J52ada2czHb3LsxE5b7NB10XTETlvs0HXRdEpFZYr-MDL0XOkwdZyj-fKMc2qfw0k5Sg3wmwR7Z_l9&_nc_ohc=HHp_nQujzmsQ7kNvwGL4MjQ&_nc_oc=AdlJqwYsVP_6aqBp9HV1JgQaEuaVUagIkw2cXaHpZQ_OCdJrroQe2JjOAsWLMtPu_A_MngZk4eqpjiwp8_SKgf9o&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=UOEg5nTD5QJRslrWNetOgQ&oh=00_AfYNutrmHB5uWX4hK7Uu5VMHBtR6vBl05p6WRwOvAfU3Ew&oe=68C634A9" alt="Slide 1" class="active">
+                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488867158_1217556500371880_7867111699619522735_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFzn9QYsn8hozkPBtAynoONXpkv9wi_Yx1emS_3CL9jHRCQGaKgzhT7p9uVLo1F5zAlZepbp7zePx36KyPdzM30&_nc_ohc=Zx5zJEQhwh8Q7kNvwGGnD0L&_nc_oc=Adm1glg9mowGWb_ecMsY_s45pGN4QB5lyKiWLItatVelLaNfRVHKUwc4EZqc3KhVLaqe5yi5Ipj7Zyok5ACkL1q9&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=pcYQsxPS84xGXMStQ4mUDw&oh=00_AfZKb8QWDDEWHBRXma5C5ydjb2QbclFtzJJLrXlGuh8nmQ&oe=68C61B94" alt="Slide 2">
+                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/481155119_1185750273552503_8875610149521847189_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeH1IoHp7w1Xz2WKU03Pqt_w_K0ZWVeRx5v8rRlZV5HHm4MqKsKlSNPX5140hJNfhOpJua2EsPky0BVUv17BooUg&_nc_ohc=E5e0faODK7EQ7kNvwFTWqE0&_nc_oc=Adlco4m8qcEur5N6ivz3milOkmAgWNfnhqbL_iPCk7EWygGiPemNWjxFU534VAVXHgBKA09VtN-r7JFipDgiYK1_&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=91kDnvGnAvOfeq2tjuI6Rw&oh=00_AfZDbf1FjEvZG-EuwaCIfqEbc1YwUY4L4-bx6PQIH-QIzQ&oe=68C64D0A" alt="Slide 3">
+                <div class="slider-dots">
+                    <span class="slider-dot active"></span>
+                    <span class="slider-dot"></span>
+                    <span class="slider-dot"></span>
+                </div>
+            </div>
+            <p><strong>আমাদের কোর্সসমূহ</strong></p>
+            <ul>
+                <li>ব্যাসিক কম্পিউটার</li>
+                <li>মাইক্রোসফট অফিস এপ্লিকেশন</li>
+                <li>গ্রাফিক্স ডিজাইন</li>
+            </ul>
+            <p><strong>প্রোফাইটরঃ</strong> জাকির হোসাইন</p>
+            <p><strong>যোগাযোগঃ</strong><br>
+            স্মার্ট টেকনোলজি<br>
+            হাই স্কুল গেটের পাশে, স্কুল মার্কেট, ডিবি রোড, কানকিরহাট, সেনবাগ, নোয়াখালী।<br>
+            মোবাইলঃ <a href="tel:01775556665" class="tel">01775556665</a><br>
+            <div class="social-links">
+                <a href="https://web.facebook.com/SmartTechnologyKankirhat" class="facebook"><i class="fab fa-facebook"></i> ফেসবুক</a>
+                <a href="https://wa.me/01775556665?text=Hello" class="whatsapp"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ</a>
+            </div>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <a href="developer.html" class="developer-button"><i class="fas fa-user-tie"></i> ডেভেলপার সম্পর্কে</a>
+        <p>&copy; ২০২৫ কানকিরহাট। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        // ফটো স্লাইডার
+        function initSlider() {
+            const sliders = document.querySelectorAll('.slider');
+            sliders.forEach(slider => {
+                const images = slider.querySelectorAll('img');
+                const dots = slider.querySelectorAll('.slider-dot');
+                let currentIndex = 0;
+
+                function showSlide(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle('active', i === index);
+                    });
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        showSlide(currentIndex);
+                    });
+                });
+
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    showSlide(currentIndex);
+                }, 3000);
+            });
+        }
+        initSlider();
+
+        // লিংক/বাটন ক্লিকে ইন্টারনেট চেক
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.href !== '#') {
+                if (!navigator.onLine) {
+                    e.preventDefault();
+                    alert('দয়া করে আপনার ইন্টারনেট কানেকশন চেক করুন');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
