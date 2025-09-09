@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ডেভেলপার - কানকিরহাট</title>
+    <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <style>
+        body {
+            font-family: 'SolaimanLipi', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        h1 { margin: 0; font-size: 2.5em; }
+        h2 { margin: 5px 0; font-size: 1.5em; }
+        .developer-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #fff;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .developer-info {
+            margin: 20px 0;
+        }
+        .developer-info h3 {
+            font-size: 1.8em;
+            margin: 10px 0;
+        }
+        .developer-info p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .social-links a {
+            font-size: 1.2em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        .social-links .facebook {
+            color: #2196F3;
+        }
+        .social-links .facebook:hover {
+            color: #1976D2;
+        }
+        .social-links .youtube {
+            color: #FF0000;
+        }
+        .social-links .youtube:hover {
+            color: #CC0000;
+        }
+        .social-links .whatsapp {
+            color: #25D366;
+        }
+        .social-links .whatsapp:hover {
+            color: #20B258;
+        }
+        .social-links i {
+            font-size: 1.5em;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.2em; }
+            .developer-container { padding: 15px; }
+            .photo-frame { width: 150px; height: 150px; }
+            .developer-info h3 { font-size: 1.5em; }
+            .developer-info p { font-size: 1em; }
+            .social-links a { font-size: 1em; }
+            .social-links i { font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>কানকিরহাট</h1>
+        <h2>ডেভেলপার সম্পর্কে</h2>
+    </header>
+
+    <div class="developer-container">
+        <div class="photo-frame">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9oDkM7ei40LHAiHyO712F0PJdczB_v3ww5xtq0oL7ZWVOw3isL4VKJWAQbs2aMRR6cEPWm-SV9Pu_6iguEQKjHpMx8cN3rlnG91382L41KVKfhMOhR10czUxS2K9mbECtwSrbt9lPigBO7n5vol8bfBDMJkShTIPW4NRo1x7YLDhykZRJhlb0_eLciHA/w400-h395/Abubokar%20Siddik.jpg" alt="মুহাঃ আবুবকর ছিদ্দিক">
+        </div>
+        <div class="developer-info">
+            <h3>মুহাঃ আবুবকর ছিদ্দিক</h3>
+            <p>Microsoft Certified Solutions Associate</p>
+            <div class="social-links">
+                <a href="https://web.facebook.com/ABSict/" class="facebook"><i class="fab fa-facebook"></i> ফেসবুক</a>
+                <a href="https://www.youtube.com/absiddikedu" class="youtube"><i class="fab fa-youtube"></i> ইউটিউব</a>
+                <a href="https://wa.me/01815201132?text=Hello" class="whatsapp"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ: 01815201132 (Text only)</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; ২০২৫ কানকিরহাট। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        // লিংক ক্লিকে ইন্টারনেট চেক
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.href !== '#') {
+                if (!navigator.onLine) {
+                    e.preventDefault();
+                    alert('দয়া করে আপনার ইন্টারনেট কানেকশন চেক করুন');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
