@@ -107,6 +107,51 @@
             color: white;
             text-decoration: none;
         }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid #4CAF50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slider img.active {
+            opacity: 1;
+        }
+        .slider a img:hover {
+            transform: scale(1.05);
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .slider-dot.active {
+            background-color: #4CAF50;
+        }
         .developer-button {
             background-color: #FF9800;
             color: white;
@@ -140,6 +185,7 @@
             section { padding: 10px; }
             .business-section { padding: 10px; }
             .business-section h4 { font-size: 1.1em; }
+            .slider { height: 200px; }
         }
     </style>
 </head>
@@ -148,21 +194,34 @@
         <h1>কানকিরহাট</h1>
         <h2>সেনবাগ, নোয়াখালী</h2>
     </header>
-
     <input type="text" id="search" placeholder="দোকান খুঁজুন" onkeyup="searchPage()">
-
     <marquee id="scrollText" behavior="scroll" direction="left">লোড হচ্ছে...</marquee>
-
+    <section id="photo-slider">
+      
+        <div class="slider">
+        <a href="https://abubokarbd.github.io/kankirhat/smart.html">
+            <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488659392_1218272040300326_6629375751084598239_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHHB6rZX2J52ada2czHb3LsxE5b7NB10XTETlvs0HXRdEpFZYr-MDL0XOkwdZyj-fKMc2qfw0k5Sg3wmwR7Z_l9&_nc_ohc=HHp_nQujzmsQ7kNvwGL4MjQ&_nc_oc=AdlJqwYsVP_6aqBp9HV1JgQaEuaVUagIkw2cXaHpZQ_OCdJrroQe2JjOAsWLMtPu_A_MngZk4eqpjiwp8_SKgf9o&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=VPQggATetFn8VqQB3yF3Fw&oh=00_AfbgdIL-urmwn2KY_TeC1jmhhf5HELnLwB0IfDvH3IHmBw&oe=68C634A9" alt="Slide 1" class="active"> </a>
+            <a href="https://abubokarbd.github.io/kankirhat/smart.html">
+            <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488075309_4106843639546499_6565729542438365503_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHarpCiTD8b_Xcl8CHWXYjIpyeo2ZNm77anJ6jZk2bvtoQ4nBUFzXlNmnXQJBbtoVOpOJTcnlvX7d9RDwASEFm7&_nc_ohc=rWVHqMQ099QQ7kNvwHOj4Zl&_nc_oc=AdkAYFJLl6q4kB9BCRy58EjPLguAX24YR-sDgBN5OW6MQ1ZnKilXPacvdpSQrUDOaJBEdzaavj23Udsfxny5fo9v&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=2fxIyNHUsfEptsmP31lkvA&oh=00_Afarr1hBK7Pfz1tQMtc4q6cuidhi_zg8PHzQr7-zvLjKSw&oe=68C643D3" alt="Slide 2"> </a>
+            <a href="https://abubokarbd.github.io/kankirhat/smart.html">
+                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/481155119_1185750273552503_8875610149521847189_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeH1IoHp7w1Xz2WKU03Pqt_w_K0ZWVeRx5v8rRlZV5HHm4MqKsKlSNPX5140hJNfhOpJua2EsPky0BVUv17BooUg&_nc_ohc=E5e0faODK7EQ7kNvwFTWqE0&_nc_oc=Adlco4m8qcEur5N6ivz3milOkmAgWNfnhqbL_iPCk7EWygGiPemNWjxFU534VAVXHgBKA09VtN-r7JFipDgiYK1_&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=91kDnvGnAvOfeq2tjuI6Rw&oh=00_AfZDbf1FjEvZG-EuwaCIfqEbc1YwUY4L4-bx6PQIH-QIzQ&oe=68C64D0A" alt="Slide 3">
+            </a>
+            <div class="slider-dots">
+                <span class="slider-dot active"></span>
+                <span class="slider-dot"></span>
+                <span class="slider-dot"></span>
+            </div>
+        </div>
+    </section>
     <section id="institutions">
         <h3>প্রতিষ্ঠান</h3>
         <div class="buttons">
             <a href="#" class="button"><i class="fas fa-graduation-cap"></i> শিক্ষা প্রতিষ্ঠান</a>
             <a href="#" class="button"><i class="fas fa-pray"></i> ধর্মীয় প্রতিষ্ঠান</a>
-            <a href="#" class="button"><i class="fas fa-laptop-code"></i> আইটি</a>
+            <a href="https://abubokarbd.github.io/kankirhat/smart.html" class="button"><i class="fas fa-laptop-code"></i> আইটি</a>
             <a href="#" class="button"><i class="fas fa-coins"></i> অর্থনৈতিক</a>
         </div>
     </section>
-
     <section id="business">
         <h3>ব্যবসা প্রতিষ্ঠান</h3>
         <div class="business-sections">
@@ -198,20 +257,16 @@
             </div>
         </div>
     </section>
-
     <footer>
-       
         <a href="https://abubokarbd.github.io/kankirhat/deve.html" class="developer-button"><i class="fas fa-user-tie"></i> ডেভেলপার সম্পর্কে</a>
         <p>&copy; ২০২৫ কানকিরহাট। সর্বস্বত্ব সংরক্ষিত।</p>
     </footer>
-
     <script>
         // সার্চ ফাংশন: পুরো পেজে টেক্সট সার্চ
         function searchPage() {
             let input = document.getElementById('search').value.toLowerCase();
             if (input) alert('খোঁজা হচ্ছে: ' + input);
         }
-
         // স্ক্রলিং টেক্সট লোড: Spreadsheet থেকে
         async function loadScrollText() {
             const csvUrl = 'https://docs.google.com/spreadsheets/d/1m1YJbWaoLgr0fo5-f9mWnB0ROnoru0mnt2yipq0obV0/pub?output=csv&gid=REPLACE_WITH_GID';
@@ -226,7 +281,34 @@
             }
         }
         loadScrollText();
-
+        // ফটো স্লাইডার
+        function initSlider() {
+            const sliders = document.querySelectorAll('.slider');
+            sliders.forEach(slider => {
+                const images = slider.querySelectorAll('img');
+                const dots = slider.querySelectorAll('.slider-dot');
+                let currentIndex = 0;
+                function showSlide(index) {
+                    images.forEach((img, i) => {
+                        img.classList.toggle('active', i === index);
+                    });
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                }
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        showSlide(currentIndex);
+                    });
+                });
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    showSlide(currentIndex);
+                }, 3000);
+            });
+        }
+        initSlider();
         // লিংক/বাটন ক্লিকে ইন্টারনেট চেক
         document.addEventListener('click', function(e) {
             if (e.target.tagName === 'A' && e.target.href !== '#') {
