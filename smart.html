@@ -174,6 +174,27 @@
             .business-section .social-links i { font-size: 1.2em; }
             .slider { height: 200px; }
         }
+
+        /* === অ্যানিমেশন CSS === */
+        .animate-title {
+            opacity: 0;
+            transform: scale(0.8);
+            animation: zoomIn 1s ease forwards;
+        }
+        @keyframes zoomIn {
+            to { opacity: 1; transform: scale(1); }
+        }
+        .animate-list li {
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 0.8s ease forwards;
+        }
+        .animate-list li:nth-child(1) { animation-delay: 1s; }
+        .animate-list li:nth-child(2) { animation-delay: 2s; }
+        .animate-list li:nth-child(3) { animation-delay: 3s; }
+        @keyframes slideIn {
+            to { opacity: 1; transform: translateX(0); }
+        }
     </style>
 </head>
 <body>
@@ -186,22 +207,27 @@
         <div class="business-section">
             <h4><i class="fas fa-laptop-code"></i> স্মার্ট টেকনোলজি</h4>
             <h5>কম্পিউটার ট্রেইনিং সেন্টার</h5>
+
+            <!-- স্লাইডার -->
             <div class="slider">
-                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488659392_1218272040300326_6629375751084598239_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHHB6rZX2J52ada2czHb3LsxE5b7NB10XTETlvs0HXRdEpFZYr-MDL0XOkwdZyj-fKMc2qfw0k5Sg3wmwR7Z_l9&_nc_ohc=HHp_nQujzmsQ7kNvwGL4MjQ&_nc_oc=AdlJqwYsVP_6aqBp9HV1JgQaEuaVUagIkw2cXaHpZQ_OCdJrroQe2JjOAsWLMtPu_A_MngZk4eqpjiwp8_SKgf9o&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=UOEg5nTD5QJRslrWNetOgQ&oh=00_AfYNutrmHB5uWX4hK7Uu5VMHBtR6vBl05p6WRwOvAfU3Ew&oe=68C634A9" alt="Slide 1" class="active">
+               <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488659392_1218272040300326_6629375751084598239_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHHB6rZX2J52ada2czHb3LsxE5b7NB10XTETlvs0HXRdEpFZYr-MDL0XOkwdZyj-fKMc2qfw0k5Sg3wmwR7Z_l9&_nc_ohc=HHp_nQujzmsQ7kNvwGL4MjQ&_nc_oc=AdlJqwYsVP_6aqBp9HV1JgQaEuaVUagIkw2cXaHpZQ_OCdJrroQe2JjOAsWLMtPu_A_MngZk4eqpjiwp8_SKgf9o&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=UOEg5nTD5QJRslrWNetOgQ&oh=00_AfYNutrmHB5uWX4hK7Uu5VMHBtR6vBl05p6WRwOvAfU3Ew&oe=68C634A9" alt="Slide 1" class="active">
                 <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488867158_1217556500371880_7867111699619522735_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFzn9QYsn8hozkPBtAynoONXpkv9wi_Yx1emS_3CL9jHRCQGaKgzhT7p9uVLo1F5zAlZepbp7zePx36KyPdzM30&_nc_ohc=Zx5zJEQhwh8Q7kNvwGGnD0L&_nc_oc=Adm1glg9mowGWb_ecMsY_s45pGN4QB5lyKiWLItatVelLaNfRVHKUwc4EZqc3KhVLaqe5yi5Ipj7Zyok5ACkL1q9&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=pcYQsxPS84xGXMStQ4mUDw&oh=00_AfZKb8QWDDEWHBRXma5C5ydjb2QbclFtzJJLrXlGuh8nmQ&oe=68C61B94" alt="Slide 2">
                 <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/481155119_1185750273552503_8875610149521847189_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeH1IoHp7w1Xz2WKU03Pqt_w_K0ZWVeRx5v8rRlZV5HHm4MqKsKlSNPX5140hJNfhOpJua2EsPky0BVUv17BooUg&_nc_ohc=E5e0faODK7EQ7kNvwFTWqE0&_nc_oc=Adlco4m8qcEur5N6ivz3milOkmAgWNfnhqbL_iPCk7EWygGiPemNWjxFU534VAVXHgBKA09VtN-r7JFipDgiYK1_&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=91kDnvGnAvOfeq2tjuI6Rw&oh=00_AfZDbf1FjEvZG-EuwaCIfqEbc1YwUY4L4-bx6PQIH-QIzQ&oe=68C64D0A" alt="Slide 3">
-                <div class="slider-dots">
+               <div class="slider-dots">
                     <span class="slider-dot active"></span>
                     <span class="slider-dot"></span>
                     <span class="slider-dot"></span>
                 </div>
             </div>
-            <p><strong>আমাদের কোর্সসমূহ</strong></p>
-            <ul>
+
+            <!-- অ্যানিমেটেড টেক্সট -->
+            <p><strong class="animate-title">আমাদের কোর্সসমূহ</strong></p>
+            <ul class="animate-list">
                 <li>ব্যাসিক কম্পিউটার</li>
                 <li>মাইক্রোসফট অফিস এপ্লিকেশন</li>
                 <li>গ্রাফিক্স ডিজাইন</li>
             </ul>
+
             <p><strong>প্রোফাইটরঃ</strong> জাকির হোসাইন</p>
             <p><strong>যোগাযোগঃ</strong><br>
             স্মার্ট টেকনোলজি<br>
