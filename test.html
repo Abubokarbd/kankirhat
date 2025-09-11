@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>কানকিরহাট</title>
+    <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <style>
+        body {
+            font-family: 'SolaimanLipi', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+        }
+        h1 { margin: 0; font-size: 2.5em; }
+        h2 { margin: 5px 0; font-size: 1.5em; }
+        input[type="text"] {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin: 20px 0;
+            font-family: 'SolaimanLipi', sans-serif;
+            font-size: 1.2em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        marquee {
+            font-size: 1.2em;
+            color: #FF5722;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .button {
+            background-color: #2196F3;
+            color: white;
+            padding: 12px;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.3s, background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .button i {
+            font-size: 1.2em;
+        }
+        .button:hover {
+            transform: scale(1.05);
+            background-color: #1976D2;
+        }
+        .business-sections {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .business-section {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .business-section h4 {
+            margin: 0 0 10px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .business-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 0;
+            text-align: left;
+        }
+        .business-section ul li {
+            margin: 5px 0;
+        }
+        .business-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid #4CAF50;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slider img.active {
+            opacity: 1;
+        }
+        .slider a img:hover {
+            transform: scale(1.05);
+        }
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .slider-dot.active {
+            background-color: #4CAF50;
+        }
+        .developer-button {
+            background-color: #FF9800;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .developer-button i {
+            font-size: 1.2em;
+        }
+        .developer-button:hover {
+            background-color: #F57C00;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.2em; }
+            .button { font-size: 0.9em; padding: 10px; }
+            .button i { font-size: 1em; }
+            section { padding: 10px; }
+            .business-section { padding: 10px; }
+            .business-section h4 { font-size: 1.1em; }
+            .slider { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>কানকিরহাট</h1>
+        <h2>সেনবাগ, নোয়াখালী</h2>
+    </header>
+    <input type="text" id="search" placeholder="দোকান খুঁজুন" onkeyup="searchPage()">
+    <marquee id="scrollText" behavior="scroll" direction="left">লোড হচ্ছে...</marquee>
+    <section id="photo-slider">
+        <!-- আগের মতো স্লাইডার -->
+        <div class="slider">
+            <a href="https://abubokarbd.github.io/kankirhat/smart.html">
+                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488659392_1218272040300326_6629375751084598239_n.jpg?...&oe=68C634A9" alt="Slide 1" class="active">
+            </a>
+            <a href="https://abubokarbd.github.io/kankirhat/smart.html">
+                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488075309_4106843639546499_6565729542438365503_n.jpg?...&oe=68C643D3" alt="Slide 2">
+            </a>
+            <a href="https://abubokarbd.github.io/kankirhat/smart.html">
+                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/481155119_1185750273552503_8875610149521847189_n.jpg?...&oe=68C64D0A" alt="Slide 3">
+            </a>
+            <div class="slider-dots">
+                <span class="slider-dot active"></span>
+                <span class="slider-dot"></span>
+                <span class="slider-dot"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- প্রতিষ্ঠান -->
+    <section id="institutions">
+        <h3>প্রতিষ্ঠান</h3>
+        <div class="buttons">
+            <a href="https://abubokarbd.github.io/kankirhat/impel.html" class="button"><i class="fas fa-graduation-cap"></i> শিক্ষা প্রতিষ্ঠান</a>
+            <a href="#" class="button"><i class="fas fa-pray"></i> ধর্মীয় প্রতিষ্ঠান</a>
+            <a href="https://abubokarbd.github.io/kankirhat/smart.html" class="button"><i class="fas fa-laptop-code"></i> আইটি</a>
+            <a href="#" class="button"><i class="fas fa-coins"></i> অর্থনৈতিক</a>
+        </div>
+    </section>
+
+    <!-- ব্যবসা -->
+    <section id="business">
+        <h3>ব্যবসা প্রতিষ্ঠান</h3>
+        <div class="business-sections">
+            <!-- আপনার আগের লিস্ট একই রাখা হলো -->
+            <div class="business-section">
+                <h4><i class="fas fa-shopping-basket"></i> নিত্যপ্রয়োজনীয়</h4>
+                <div class="button">
+                    <ul>
+                        <li><a href="https://abubokarbd.github.io/kankirhat/smart.html">কাঁচাবাজার</a></li>
+                        <li><a href="https://abubokarbd.github.io/kankirhat/smart.html">মুদি দোকান</a></li>
+                        <li><a href="https://abubokarbd.github.io/kankirhat/impel.html">ফলের দোকান</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="business-section">
+                <h4><i class="fas fa-tshirt"></i> পোশাক/প্রসাধনী</h4>
+                <div class="button">
+                    <ul>
+                        <li><a href="#">কাপড়ের দোকান</a></li>
+                        <li><a href="#">জুতার দোকান</a></li>
+                        <li><a href="#">কসমেটিক্স / প্রসাধনী</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="business-section">
+                <h4><i class="fas fa-home"></i> গৃহস্থালি</h4>
+                <div class="button">
+                    <ul>
+                        <li><a href="#">প্লাস্টিক/কিচেনওয়্যার</a></li>
+                        <li><a href="#">ফার্নিচার</a></li>
+                        <li><a href="#">বৈদ্যুতিক সামগ্রী</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="business-section">
+                <h4><i class="fas fa-utensils"></i> খাদ্য ও পানীয় </h4>
+                <div class="button">
+                    <ul>
+                        <li><a href="#">হোটেল/রেস্টুরেন্ট</a></li>
+                        <li><a href="#">ফাস্টফুড / বেকারি </a></li>
+                        <li><a href="#"> মিষ্টির দোকান </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="https://abubokarbd.github.io/kankirhat/deve.html" class="developer-button"><i class="fas fa-user-tie"></i> ডেভেলপার সম্পর্কে</a>
+        <p>&copy; ২০২৫ কানকিরহাট। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        function searchPage() {
+            let input = document.getElementById('search').value.toLowerCase();
+            if (input) alert('খোঁজা হচ্ছে: ' + input);
+        }
+
+        async function loadScrollText() {
+            const csvUrl = 'https://docs.google.com/spreadsheets/d/1m1YJbWaoLgr0fo5-f9mWnB0ROnoru0mnt2yipq0obV0/pub?output=csv&gid=REPLACE_WITH_GID';
+            try {
+                const response = await fetch(csvUrl);
+                const csvText = await response.text();
+                const rows = csvText.split('\n').map(row => row.split(','));
+                const cellA12 = rows[11][0] || 'টেক্সট পাওয়া যায়নি';
+                document.getElementById('scrollText').innerText = cellA12;
+            } catch (error) {
+                document.getElementById('scrollText').innerText = 'কানকিরহাট বাজারের তথ্য ভান্ডারে আপনাকে স্বাগতম';
+            }
+        }
+        loadScrollText();
+
+        function initSlider() {
+            const sliders = document.querySelectorAll('.slider');
+            sliders.forEach(slider => {
+                const images = slider.querySelectorAll('img');
+                const dots = slider.querySelectorAll('.slider-dot');
+                let currentIndex = 0;
+                function showSlide(index) {
+                    images.forEach((img, i) => img.classList.toggle('active', i === index));
+                    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+                }
+                dots.forEach((dot, i) => {
+                    dot.addEventListener('click', () => {
+                        currentIndex = i;
+                        showSlide(currentIndex);
+                    });
+                });
+                setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    showSlide(currentIndex);
+                }, 3000);
+            });
+        }
+        initSlider();
+    </script>
+
+    <!-- এখানে আপনার popup.js ফাইল লোড হলো -->
+    <script src="https://abubokarbd.github.io/rco/popup.js"></script>
+</body>
+</html>
