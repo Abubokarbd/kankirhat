@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>কানকিরহাট</title>
+    <title>ডেভেলপার </title>
     <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
     <style>
@@ -22,323 +22,264 @@
         }
         h1 { margin: 0; font-size: 2.5em; }
         h2 { margin: 5px 0; font-size: 1.5em; }
-        input[type="text"] {
-            width: 80%;
-            max-width: 400px;
-            padding: 10px;
-            margin: 20px 0;
-            font-family: 'SolaimanLipi', sans-serif;
-            font-size: 1.2em;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        marquee {
-            font-size: 1.2em;
-            color: #FF5722;
-            padding: 10px;
-            background-color: #fff;
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-        }
-        section {
-            margin: 20px;
+        .developer-container {
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 10px;
             border: 1px solid #ddd;
         }
-        .buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .button {
-            background-color: #2196F3;
-            color: white;
-            padding: 12px;
-            font-size: 1em;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.3s, background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-        .button i {
-            font-size: 1.2em;
-        }
-        .button:hover {
-            transform: scale(1.05);
-            background-color: #1976D2;
-        }
-
-        /* ব্যবসা বিভাগের জন্য */
-        .business-sections {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .business-section {
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            font-size: 0.95em;
-            word-wrap: break-word;
-        }
-        .business-section h4 {
-            margin: 0 0 8px;
-            font-size: 1.2em;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .business-section ul {
-            list-style-type: disc;
-            padding-left: 15px;
-            margin: 0;
-            text-align: left;
-        }
-        .business-section ul li {
-            margin: 4px 0;
-        }
-        .business-section ul li a {
-        	color: #333;
-            text-decoration: none;
-        }
-
-        /* ফটো স্লাইডার */
-        .slider {
-            position: relative;
-            max-width: 100%;
-            height: 300px;
+        .photo-frame {
+            width: 200px;
+            height: 200px;
             margin: 20px auto;
-            overflow: hidden;
-            border-radius: 8px;
+            padding: 10px;
+            background-color: #fff;
             border: 2px solid #4CAF50;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
-        .slider img {
+        .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            border-radius: 5px;
         }
-        .slider img.active {
-            opacity: 1;
+        .developer-info {
+            margin: 20px 0;
         }
-        .slider a img:hover {
-            transform: scale(1.05);
+        .developer-info h3 {
+            font-size: 1.8em;
+            margin: 10px 0;
         }
-        .slider-dots {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+        .developer-info p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        .social-links {
             display: flex;
-            gap: 8px;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
         }
-        .slider-dot {
-            width: 10px;
-            height: 10px;
-            background-color: #bbb;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .slider-dot.active {
-            background-color: #4CAF50;
-        }
-
-        .developer-button {
-            background-color: #FF9800;
-            color: white;
-            padding: 10px 20px;
-            font-size: 1em;
+        .social-links a {
+            font-size: 1.2em;
             text-decoration: none;
-            border-radius: 20px;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 8px;
-            margin-top: 10px;
-            transition: background-color 0.3s;
+            transition: color 0.3s;
         }
-        .developer-button i {
-            font-size: 1.2em;
+        .social-links .facebook {
+            color: #2196F3;
         }
-        .developer-button:hover {
-            background-color: #F57C00;
+        .social-links .facebook:hover {
+            color: #1976D2;
         }
-
+        .social-links .youtube {
+            color: #FF0000;
+        }
+        .social-links .youtube:hover {
+            color: #CC0000;
+        }
+        .social-links .whatsapp {
+            color: #25D366;
+        }
+        .social-links .whatsapp:hover {
+            color: #20B258;
+        }
+        .social-links i {
+            font-size: 1.5em;
+        }
         footer {
             background-color: #333;
             color: white;
             padding: 20px;
             margin-top: 20px;
         }
-
         @media (max-width: 600px) {
             h1 { font-size: 2em; }
             h2 { font-size: 1.2em; }
-            .button { font-size: 0.9em; padding: 10px; }
-            .button i { font-size: 1em; }
-            section { padding: 10px; }
-            .business-sections {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 6px;
-                padding: 0 5px;
-            }
-            .business-section {
-                padding: 6px;
-                font-size: 0.9em;
-            }
-            .business-section h4 {
-                font-size: 1em;
-            }
-            .business-section ul {
-                padding-left: 10px;
-            }
-            .slider { height: 200px; }
+            .developer-container { padding: 15px; }
+            .photo-frame { width: 150px; height: 150px; }
+            .developer-info h3 { font-size: 1.5em; }
+            .developer-info p { font-size: 1em; }
+            .social-links a { font-size: 1em; }
+            .social-links i { font-size: 1.2em; }
         }
+
+/* promotion */
+    .promo-line {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #2E7D32;
+  background-color: #f0fff0;
+  padding: 10px 15px;
+  margin: 10px auto; /* আগে ছিল 20px */
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  max-width: 700px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* date  */
+
+#fullDate {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
+  background-color: rgba(255,255,255,0.6);
+  backdrop-filter: blur(2px);
+}
+
+
     </style>
 </head>
 <body>
     <header>
-        <h1>কানকিরহাট</h1>
-        <h2>সেনবাগ, নোয়াখালী</h2>
+        <h1>ডেভেলপার</h1>
+      
+
     </header>
 
-    <input type="text" id="search" placeholder="দোকান খুঁজুন" onkeyup="searchPage()">
-    <marquee id="scrollText" behavior="scroll" direction="left">লোড হচ্ছে...</marquee>
 
-    <!-- ফটো স্লাইডার -->
-    <section id="photo-slider">
-        <div class="slider">
-             <a href="https://abubokarbd.github.io/kankirhat/smart.html">
-            <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488659392_1218272040300326_6629375751084598239_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHHB6rZX2J52ada2czHb3LsxE5b7NB10XTETlvs0HXRdEpFZYr-MDL0XOkwdZyj-fKMc2qfw0k5Sg3wmwR7Z_l9&_nc_ohc=HHp_nQujzmsQ7kNvwGL4MjQ&_nc_oc=AdlJqwYsVP_6aqBp9HV1JgQaEuaVUagIkw2cXaHpZQ_OCdJrroQe2JjOAsWLMtPu_A_MngZk4eqpjiwp8_SKgf9o&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=VPQggATetFn8VqQB3yF3Fw&oh=00_AfbgdIL-urmwn2KY_TeC1jmhhf5HELnLwB0IfDvH3IHmBw&oe=68C634A9" alt="Slide 1" class="active"> </a>
-            <a href="https://abubokarbd.github.io/kankirhat/smart.html">
-            <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/488075309_4106843639546499_6565729542438365503_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHarpCiTD8b_Xcl8CHWXYjIpyeo2ZNm77anJ6jZk2bvtoQ4nBUFzXlNmnXQJBbtoVOpOJTcnlvX7d9RDwASEFm7&_nc_ohc=rWVHqMQ099QQ7kNvwHOj4Zl&_nc_oc=AdkAYFJLl6q4kB9BCRy58EjPLguAX24YR-sDgBN5OW6MQ1ZnKilXPacvdpSQrUDOaJBEdzaavj23Udsfxny5fo9v&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=2fxIyNHUsfEptsmP31lkvA&oh=00_Afarr1hBK7Pfz1tQMtc4q6cuidhi_zg8PHzQr7-zvLjKSw&oe=68C643D3" alt="Slide 2"> </a>
-            <a href="https://abubokarbd.github.io/kankirhat/smart.html">
-                <img src="https://scontent.fdac2-2.fna.fbcdn.net/v/t39.30808-6/481155119_1185750273552503_8875610149521847189_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeH1IoHp7w1Xz2WKU03Pqt_w_K0ZWVeRx5v8rRlZV5HHm4MqKsKlSNPX5140hJNfhOpJua2EsPky0BVUv17BooUg&_nc_ohc=E5e0faODK7EQ7kNvwFTWqE0&_nc_oc=Adlco4m8qcEur5N6ivz3milOkmAgWNfnhqbL_iPCk7EWygGiPemNWjxFU534VAVXHgBKA09VtN-r7JFipDgiYK1_&_nc_zt=23&_nc_ht=scontent.fdac2-2.fna&_nc_gid=91kDnvGnAvOfeq2tjuI6Rw&oh=00_AfZDbf1FjEvZG-EuwaCIfqEbc1YwUY4L4-bx6PQIH-QIzQ&oe=68C64D0A" alt="Slide 3">
-            </a>
-     
-            <div class="slider-dots">
-                <span class="slider-dot active"></span>
-                <span class="slider-dot"></span>
-                <span class="slider-dot"></span>
+
+ <p id="fullDate">তারিখ লোড হচ্ছে...</p>
+
+  <p class="promo-line">আপনার প্রতিষ্ঠানের জন্য আধুনিক, নিরাপদ এবং ব্যবহারবান্ধব এপ্স বা ওয়েবসাইট তৈরি করতে এখনই যোগাযোগ করুন।</p>
+
+    <div class="developer-container">
+        <div class="photo-frame">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9oDkM7ei40LHAiHyO712F0PJdczB_v3ww5xtq0oL7ZWVOw3isL4VKJWAQbs2aMRR6cEPWm-SV9Pu_6iguEQKjHpMx8cN3rlnG91382L41KVKfhMOhR10czUxS2K9mbECtwSrbt9lPigBO7n5vol8bfBDMJkShTIPW4NRo1x7YLDhykZRJhlb0_eLciHA/w400-h395/Abubokar%20Siddik.jpg" alt="মুহাঃ আবুবকর ছিদ্দিক">
+        </div>
+        <div class="developer-info">
+            <h3>মুহাঃ আবুবকর ছিদ্দিক</h3>
+            <p>Microsoft Certified Solutions Associate</p>
+            <div class="social-links">
+                <a href="https://web.facebook.com/ABSict/" class="facebook"><i class="fab fa-facebook"></i> ফেসবুক</a>
+                <a href="https://www.youtube.com/absiddikedu" class="youtube"><i class="fab fa-youtube"></i> ইউটিউব</a>
+                <a href="https://wa.me/01815201132?text=Hello" class="whatsapp"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ: 01815201132 (Text only)</a>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- প্রতিষ্ঠান -->
-    <section id="institutions">
-        <h3>প্রতিষ্ঠান</h3>
-        <div class="buttons">
-            <a href="https://abubokarbd.github.io/kankirhat/impel.html" class="button"><i class="fas fa-graduation-cap"></i> শিক্ষা প্রতিষ্ঠান</a>
-            <a href="#" class="button"><i class="fas fa-pray"></i> ধর্মীয় প্রতিষ্ঠান</a>
-            <a href="https://abubokarbd.github.io/kankirhat/smart.html" class="button"><i class="fas fa-laptop-code"></i> আইটি</a>
-            <a href="#" class="button"><i class="fas fa-coins"></i> অর্থনৈতিক</a>
-        </div>
-    </section>
-
-    <!-- ব্যবসা -->
-    <section id="business">
-        <h3>ব্যবসা প্রতিষ্ঠান</h3>
-        <div class="business-sections">
-            <div class="business-section">
-                <h4><i class="fas fa-shopping-basket"></i> নিত্যপ্রয়োজনীয়</h4>
-                <ul>
-                    <li><a href="https://abubokarbd.github.io/kankirhat/smart.html">কাঁচাবাজার</a></li>
-                    <li><a href="https://abubokarbd.github.io/kankirhat/smart.html">মুদি দোকান</a></li>
-                    <li><a href="https://abubokarbd.github.io/kankirhat/impel.html">ফলের দোকান</a></li>
-                </ul>
-            </div>
-            <div class="business-section">
-                <h4><i class="fas fa-tshirt"></i> পোশাক/প্রসাধনী</h4>
-                <ul>
-                    <li><a href="#">কাপড়ের দোকান</a></li>
-                    <li><a href="#">জুতার দোকান</a></li>
-                    <li><a href="#">কসমেটিক্স / প্রসাধনী</a></li>
-                </ul>
-            </div>
-            <div class="business-section">
-                <h4><i class="fas fa-home"></i> গৃহস্থালি</h4>
-                <ul>
-                    <li><a href="#">প্লাস্টিক/কিচেনওয়্যার</a></li>
-                    <li><a href="#">ফার্নিচার</a></li>
-                    <li><a href="#">বৈদ্যুতিক সামগ্রী</a></li>
-                </ul>
-            </div>
-            <div class="business-section">
-                <h4><i class="fas fa-utensils"></i> খাদ্য ও পানীয়</h4>
-                <ul>
-                    <li><a href="#">হোটেল/রেস্টুরেন্ট</a></li>
-                    <li><a href="#">ফাস্টফুড / বেকারি </a></li>
-                    <li><a href="#"> মিষ্টির দোকান </a></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <a href="https://abubokarbd.github.io/kankirhat/deve.html" class="developer-button"><i class="fas fa-user-tie"></i> ডেভেলপার সম্পর্কে</a>
-        <p>&copy; ২০২৫ কানকিরহাট। সর্বস্বত্ব সংরক্ষিত।</p>
-    </footer>
+   <footer>
+  <p>&copy; ২০২৫ মুহাঃ আবুবকর ছিদ্দিক । ডিজাইন ও ডেভেলপমেন্ট সংরক্ষিত </p>
+</footer>
 
     <script>
-        function searchPage() {
-            let input = document.getElementById('search').value.toLowerCase();
-            if (input) alert('খোঁজা হচ্ছে: ' + input);
-        }
-
-        async function loadScrollText() {
-            const csvUrl = 'https://docs.google.com/spreadsheets/d/1m1YJbWaoLgr0fo5-f9mWnB0ROnoru0mnt2yipq0obV0/pub?output=csv&gid=REPLACE_WITH_GID';
-            try {
-                const response = await fetch(csvUrl);
-                const csvText = await response.text();
-                const rows = csvText.split('\n').map(row => row.split(','));
-                const cellA12 = rows[11][0] || 'টেক্সট পাওয়া যায়নি';
-                document.getElementById('scrollText').innerText = cellA12;
-            } catch (error) {
-                document.getElementById('scrollText').innerText = 'কানকিরহাট বাজারের তথ্য ভান্ডারে আপনাকে স্বাগতম';
-            }
-        }
-        loadScrollText();
-
-        function initSlider() {
-            const sliders = document.querySelectorAll('.slider');
-            sliders.forEach(slider => {
-                const images = slider.querySelectorAll('img');
-                const dots = slider.querySelectorAll('.slider-dot');
-                let currentIndex = 0;
-                function showSlide(index) {
-                    images.forEach((img, i) => img.classList.toggle('active', i === index));
-                    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+        // লিংক ক্লিকে ইন্টারনেট চেক
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.href !== '#') {
+                if (!navigator.onLine) {
+                    e.preventDefault();
+                    alert('দয়া করে আপনার ইন্টারনেট কানেকশন চেক করুন');
                 }
-                dots.forEach((dot, i) => {
-                    dot.addEventListener('click', () => {
-                        currentIndex = i;
-                        showSlide(currentIndex);
-                    });
-                });
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    showSlide(currentIndex);
-                }, 3000);
-            });
-        }
-        initSlider();
-    </script>
+            }
+        });
 
-    <script src="https://abubokarbd.github.io/rco/popup.js"></script>
+// date | arabic | bangla | English //
+const bnDigits = d => d.toString().replace(/\d/g, n => '০১২৩৪৫৬৭৮৯'[n]);
+const bnMonths = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+const bnDays = ['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+
+function getEnglishDate(date) {
+  const day = bnDays[date.getDay()];
+  const d = bnDigits(date.getDate());
+  const m = bnMonths[date.getMonth()];
+  const y = bnDigits(date.getFullYear());
+  return `${day}, ${d} ${m} ${y} খ্রিস্টাব্দ`;
+}
+
+async function getHijriBD(date) {
+  const dd = String(date.getDate()).padStart(2, '0');
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const yyyy = date.getFullYear();
+  const apiURL = `https://bd-hijri-dates.qomarhsn.com/?date=${dd}-${mm}-${yyyy}`;
+
+  try {
+    const res = await fetch(apiURL);
+    const data = await res.json();
+    const hijriRaw = data.hijriDate;
+    const parts = hijriRaw.split("-");
+    const day = parts[0];
+    const month = parts[1];
+    const year = parts[2];
+
+    const hijriMonthNames = {
+      "01": "মুহাররম", "02": "সফর", "03": "রবিউল আউয়াল", "04": "রবিউস সানি",
+      "05": "জমাদিউল আউয়াল", "06": "জমাদিউস সানি", "07": "রজব", "08": "শাবান",
+      "09": "রমজান", "10": "শাওয়াল", "11": "জিলক্বদ", "12": "জিলহজ্জ"
+    };
+
+    return `${bnDigits(day)} ${hijriMonthNames[month]} ${bnDigits(year)} হিজরি`;
+  } catch (err) {
+    return "হিজরি তারিখ পাওয়া যায়নি";
+  }
+}
+
+function getBongabdoFixed(date) {
+  const engDate = date.getDate();
+  const engMonth = date.getMonth() + 1;
+  const engYear = date.getFullYear();
+
+  const banglaMonths = [
+    { name: 'বৈশাখ', start: { month: 4, day: 14 } },
+    { name: 'জ্যৈষ্ঠ', start: { month: 5, day: 15 } },
+    { name: 'আষাঢ়', start: { month: 6, day: 15 } },
+    { name: 'শ্রাবণ', start: { month: 7, day: 16 } },
+    { name: 'ভাদ্র', start: { month: 8, day: 16 } },
+    { name: 'আশ্বিন', start: { month: 9, day: 16 } },
+    { name: 'কার্তিক', start: { month: 10, day: 16 } },
+    { name: 'অগ্রহায়ণ', start: { month: 11, day: 16 } },
+    { name: 'পৌষ', start: { month: 12, day: 16 } },
+    { name: 'মাঘ', start: { month: 1, day: 15 } },
+    { name: 'ফাল্গুন', start: { month: 2, day: 13 } },
+    { name: 'চৈত্র', start: { month: 3, day: 15 } }
+  ];
+
+  let banglaMonth = '';
+  let banglaDay = 0;
+  let banglaYear = engYear - 593;
+
+  for (let i = 0; i < banglaMonths.length; i++) {
+    const current = banglaMonths[i];
+    const next = banglaMonths[(i + 1) % 12];
+
+    const startDate = new Date(engYear, current.start.month - 1, current.start.day);
+    const nextStartDate = new Date(engYear, next.start.month - 1, next.start.day);
+
+    if (date >= startDate && date < nextStartDate) {
+      banglaMonth = current.name;
+      banglaDay = Math.floor((date - startDate) / (1000 * 60 * 60 * 24)) + 1;
+      break;
+    }
+  }
+
+  if (engMonth < 4 || (engMonth === 4 && engDate < 14)) {
+    banglaYear -= 1;
+  }
+
+  return `${bnDigits(banglaDay)} ${banglaMonth} ${bnDigits(banglaYear)} বঙ্গাব্দ`;
+}
+
+async function showFullDate() {
+  const today = new Date();
+  const hijri = await getHijriBD(today);
+  const bangla = getBongabdoFixed(today);
+  const english = getEnglishDate(today);
+  document.getElementById("fullDate").innerText = `📅 ${hijri} | ${bangla} | ${english}`;
+}
+
+showFullDate();
+
+
+    </script>
+<script src="script.js"></script>
 </body>
 </html>
