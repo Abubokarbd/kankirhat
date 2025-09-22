@@ -124,6 +124,20 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
+/* date  */
+
+#fullDate {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 10px;
+  background-color: rgba(255,255,255,0.6);
+  backdrop-filter: blur(2px);
+}
+
+
     </style>
 </head>
 <body>
@@ -134,8 +148,8 @@
     </header>
 
 
-<p id="fullDate" style="text-align:center; font-weight:bold; margin:10px 0; background-color:#fff; padding:6px 10px; border-radius:10px; border:1px solid #ddd; display:inline-block;"></p>
 
+ <p id="fullDate">তারিখ লোড হচ্ছে...</p>
 
   <p class="promo-line">আপনার প্রতিষ্ঠানের জন্য আধুনিক, নিরাপদ এবং ব্যবহারবান্ধব এপ্স বা ওয়েবসাইট তৈরি করতে এখনই যোগাযোগ করুন।</p>
 
@@ -169,10 +183,8 @@
             }
         });
 
- /* bangla number */
-        const bnDigits = d => d.toString().replace(/\d/g, n => '০১২৩৪৫৬৭৮৯'[n]);
-        
-        /* english date in bangla word */ 
+// date | arabic | bangla | English //
+const bnDigits = d => d.toString().replace(/\d/g, n => '০১২৩৪৫৬৭৮৯'[n]);
 const bnMonths = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
 const bnDays = ['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
 
@@ -184,25 +196,6 @@ function getEnglishDate(date) {
   return `${day}, ${d} ${m} ${y} খ্রিস্টাব্দ`;
 }
 
-/* Bangla date with month */
-const banglaMonthsBongabdo = ['বৈশাখ','জ্যৈষ্ঠ','আষাঢ়','শ্রাবণ','ভাদ্র','আশ্বিন','কার্তিক','অগ্রহায়ণ','পৌষ','মাঘ','ফাল্গুন','চৈত্র'];
-
-function getBongabdo(date) {
-  const engYear = date.getFullYear();
-  const engMonth = date.getMonth() + 1;
-  const engDate = date.getDate();
-  let banglaYear = engYear - 593;
-  if (engMonth < 4 || (engMonth === 4 && engDate < 14)) {
-    banglaYear -= 1;
-  }
-
-  const bongabdoMonthIndex = Math.floor(((engMonth + 8) % 12));
-  const bnMonth = banglaMonthsBongabdo[bongabdoMonthIndex];
-  const bnDate = bnDigits(engDate);
-  return `${bnDate} ${bnMonth} ${bnDigits(banglaYear)} বঙ্গাব্দ`;
-}
-
-/* hijri date with bangladeshi api */
 async function getHijriBD(date) {
   const dd = String(date.getDate()).padStart(2, '0');
   const mm = String(date.getMonth() + 1).padStart(2, '0');
@@ -230,18 +223,63 @@ async function getHijriBD(date) {
   }
 }
 
+function getBongabdoFixed(date) {
+  const engDate = date.getDate();
+  const engMonth = date.getMonth() + 1;
+  const engYear = date.getFullYear();
 
-	/* show all in one */
+  const banglaMonths = [
+    { name: 'বৈশাখ', start: { month: 4, day: 14 } },
+    { name: 'জ্যৈষ্ঠ', start: { month: 5, day: 15 } },
+    { name: 'আষাঢ়', start: { month: 6, day: 15 } },
+    { name: 'শ্রাবণ', start: { month: 7, day: 16 } },
+    { name: 'ভাদ্র', start: { month: 8, day: 16 } },
+    { name: 'আশ্বিন', start: { month: 9, day: 16 } },
+    { name: 'কার্তিক', start: { month: 10, day: 16 } },
+    { name: 'অগ্রহায়ণ', start: { month: 11, day: 16 } },
+    { name: 'পৌষ', start: { month: 12, day: 16 } },
+    { name: 'মাঘ', start: { month: 1, day: 15 } },
+    { name: 'ফাল্গুন', start: { month: 2, day: 13 } },
+    { name: 'চৈত্র', start: { month: 3, day: 15 } }
+  ];
+
+  let banglaMonth = '';
+  let banglaDay = 0;
+  let banglaYear = engYear - 593;
+
+  for (let i = 0; i < banglaMonths.length; i++) {
+    const current = banglaMonths[i];
+    const next = banglaMonths[(i + 1) % 12];
+
+    const startDate = new Date(engYear, current.start.month - 1, current.start.day);
+    const nextStartDate = new Date(engYear, next.start.month - 1, next.start.day);
+
+    if (date >= startDate && date < nextStartDate) {
+      banglaMonth = current.name;
+      banglaDay = Math.floor((date - startDate) / (1000 * 60 * 60 * 24)) + 1;
+      break;
+    }
+  }
+
+  if (engMonth < 4 || (engMonth === 4 && engDate < 14)) {
+    banglaYear -= 1;
+  }
+
+  return `${bnDigits(banglaDay)} ${banglaMonth} ${bnDigits(banglaYear)} বঙ্গাব্দ`;
+}
+
 async function showFullDate() {
   const today = new Date();
   const hijri = await getHijriBD(today);
-  const bangla = getBongabdo(today);
+  const bangla = getBongabdoFixed(today);
   const english = getEnglishDate(today);
   document.getElementById("fullDate").innerText = `📅 ${hijri} | ${bangla} | ${english}`;
 }
 
 showFullDate();
- 
+
+
     </script>
+<script src="script.js"></script>
 </body>
 </html>
