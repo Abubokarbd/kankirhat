@@ -109,13 +109,35 @@
             .social-links a { font-size: 1em; }
             .social-links i { font-size: 1.2em; }
         }
+
+/* promotion */
+    .promo-line {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #2E7D32;
+  background-color: #f0fff0;
+  padding: 10px 15px;
+  margin: 10px auto; /* আগে ছিল 20px */
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  max-width: 700px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
     </style>
 </head>
 <body>
     <header>
         <h1>ডেভেলপার</h1>
-        <h2> আপনার প্রতিষ্ঠানের জন্য এপ্স বা ওয়েব সাইট বানাতে যোগাযোগ করুন </h2>
+      
+
     </header>
+
+
+<p id="fullDate" style="text-align:center; font-weight:bold; margin:10px 0; background-color:#fff; padding:6px 10px; border-radius:10px; border:1px solid #ddd; display:inline-block;"></p>
+
+
+  <p class="promo-line">আপনার প্রতিষ্ঠানের জন্য আধুনিক, নিরাপদ এবং ব্যবহারবান্ধব এপ্স বা ওয়েবসাইট তৈরি করতে এখনই যোগাযোগ করুন।</p>
 
     <div class="developer-container">
         <div class="photo-frame">
@@ -132,9 +154,9 @@
         </div>
     </div>
 
-    <footer>
-        <p>&copy; ২০২৫ কানকিরহাট। সর্বস্বত্ব সংরক্ষিত।</p>
-    </footer>
+   <footer>
+  <p>&copy; ২০২৫ মুহাঃ আবুবকর ছিদ্দিক । ডিজাইন ও ডেভেলপমেন্ট সংরক্ষিত </p>
+</footer>
 
     <script>
         // লিংক ক্লিকে ইন্টারনেট চেক
@@ -146,6 +168,80 @@
                 }
             }
         });
+
+ /* bangla number */
+        const bnDigits = d => d.toString().replace(/\d/g, n => '০১২৩৪৫৬৭৮৯'[n]);
+        
+        /* english date in bangla word */ 
+const bnMonths = ['জানুয়ারি','ফেব্রুয়ারি','মার্চ','এপ্রিল','মে','জুন','জুলাই','আগস্ট','সেপ্টেম্বর','অক্টোবর','নভেম্বর','ডিসেম্বর'];
+const bnDays = ['রবিবার','সোমবার','মঙ্গলবার','বুধবার','বৃহস্পতিবার','শুক্রবার','শনিবার'];
+
+function getEnglishDate(date) {
+  const day = bnDays[date.getDay()];
+  const d = bnDigits(date.getDate());
+  const m = bnMonths[date.getMonth()];
+  const y = bnDigits(date.getFullYear());
+  return `${day}, ${d} ${m} ${y} খ্রিস্টাব্দ`;
+}
+
+/* Bangla date with month */
+const banglaMonthsBongabdo = ['বৈশাখ','জ্যৈষ্ঠ','আষাঢ়','শ্রাবণ','ভাদ্র','আশ্বিন','কার্তিক','অগ্রহায়ণ','পৌষ','মাঘ','ফাল্গুন','চৈত্র'];
+
+function getBongabdo(date) {
+  const engYear = date.getFullYear();
+  const engMonth = date.getMonth() + 1;
+  const engDate = date.getDate();
+  let banglaYear = engYear - 593;
+  if (engMonth < 4 || (engMonth === 4 && engDate < 14)) {
+    banglaYear -= 1;
+  }
+
+  const bongabdoMonthIndex = Math.floor(((engMonth + 8) % 12));
+  const bnMonth = banglaMonthsBongabdo[bongabdoMonthIndex];
+  const bnDate = bnDigits(engDate);
+  return `${bnDate} ${bnMonth} ${bnDigits(banglaYear)} বঙ্গাব্দ`;
+}
+
+/* hijri date with bangladeshi api */
+async function getHijriBD(date) {
+  const dd = String(date.getDate()).padStart(2, '0');
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const yyyy = date.getFullYear();
+  const apiURL = `https://bd-hijri-dates.qomarhsn.com/?date=${dd}-${mm}-${yyyy}`;
+
+  try {
+    const res = await fetch(apiURL);
+    const data = await res.json();
+    const hijriRaw = data.hijriDate;
+    const parts = hijriRaw.split("-");
+    const day = parts[0];
+    const month = parts[1];
+    const year = parts[2];
+
+    const hijriMonthNames = {
+      "01": "মুহাররম", "02": "সফর", "03": "রবিউল আউয়াল", "04": "রবিউস সানি",
+      "05": "জমাদিউল আউয়াল", "06": "জমাদিউস সানি", "07": "রজব", "08": "শাবান",
+      "09": "রমজান", "10": "শাওয়াল", "11": "জিলক্বদ", "12": "জিলহজ্জ"
+    };
+
+    return `${bnDigits(day)} ${hijriMonthNames[month]} ${bnDigits(year)} হিজরি`;
+  } catch (err) {
+    return "হিজরি তারিখ পাওয়া যায়নি";
+  }
+}
+
+
+	/* show all in one */
+async function showFullDate() {
+  const today = new Date();
+  const hijri = await getHijriBD(today);
+  const bangla = getBongabdo(today);
+  const english = getEnglishDate(today);
+  document.getElementById("fullDate").innerText = `📅 ${hijri} | ${bangla} | ${english}`;
+}
+
+showFullDate();
+ 
     </script>
 </body>
 </html>
